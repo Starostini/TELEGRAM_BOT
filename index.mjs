@@ -1,11 +1,11 @@
-const TelegramApi = require ('node-telegram-bot-api');
-require('dotenv').config(); // Вызов  dotenv
-const {gameOptions, againOptions} = require('./options.js')
-
+import TelegramApi from 'node-telegram-bot-api';
+import 'dotenv/config';
+import './options.mjs';
+import { optionParametrs } from './options.mjs';
+const {gameOptions,againOptions} = optionParametrs();
 const token = process.env.BOT_TOKEN;
 const url = process.env.APP_URL;
 const bot = new TelegramApi(token, {polling: true});
-
 const chats = {};
 bot.onText(/\/echo (.+)/, (msg, match) => {
   // 'msg' is the received Message from Telegram
@@ -30,7 +30,6 @@ const start = () => {
     {command: '/myname', description: 'Как меня зовут?'},
     {command: '/game', description: 'Игра!'}
   ])
-  
   bot.on('message', async msg => {
     const text = msg.text;
     const chatId = msg.chat.id;

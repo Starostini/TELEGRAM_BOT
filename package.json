@@ -4,16 +4,18 @@
   "description": "Telegram Bot",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
-    "start": "node index.js"
+    "dev": "nodemon index.mjs",
+    "start": "node index.mjs"
   },
   "author": "",
   "license": "ISC",
   "keywords": [],
   "dependencies": {
+    "@coinbase/wallet-sdk": "^3.3.0",
     "dotenv": "^16.0.1",
     "node-telegram-bot-api": "^0.57.0",
     "nodemon": "^2.0.16",
-    "telegraf": "^4.8.5"
+    "telegraf": "^4.8.5",
+    "telegram-bot-api": "^2.0.1"
   }
 }
