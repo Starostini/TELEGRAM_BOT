@@ -1,4 +1,5 @@
 import TelegramApi from 'node-telegram-bot-api';
+
 import 'dotenv/config';
 import './options.mjs';
 import { optionParametrs } from './options.mjs';
@@ -46,6 +47,7 @@ const start = () => {
     if (text ==='/game') {
       return starGame(chatId);
     }
+    console.log(text);
     return bot.sendMessage(chatId, 'Я тебя не понимаю попробуй еще раз!');
   })
   bot.on('callback_query', async msg => {

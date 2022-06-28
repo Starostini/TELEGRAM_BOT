@@ -9,12 +9,24 @@ export function optionParametrs() {
       ]
     })
   },
+// againOptions : {
+//     reply_markup: JSON.stringify({
+//       inline_keyboard: [
+//         [{ text: 'Играть еще раз?', callback_data: '/again'}]
+//       ]
+//     })
+//   }
 againOptions : {
-    reply_markup: JSON.stringify({
-      inline_keyboard: [
-        [{ text: 'Играть еще раз?', callback_data: '/again'}]
+  reply_markup: JSON.stringify({
+    keyboard: [
+      [
+        {text:'Играть еще раз?', callback_data: '/again'}
       ]
-    })
+    ],
+    resize_keyboard: true,
+    one_time_keyboard: true
+  })
   }
 }
 }
+
