@@ -20,7 +20,7 @@ againOptions : {
   reply_markup: JSON.stringify({
     keyboard: [
       [
-        {text:'Играть еще раз?', callback_data: '/again'}
+        {text:'Да'}
       ]
     ],
     resize_keyboard: true,

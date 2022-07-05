@@ -48,20 +48,25 @@ const start = () => {
       return starGame(chatId);
     }
     console.log(text);
+    console.log(text === 'Да');
     return bot.sendMessage(chatId, 'Я тебя не понимаю попробуй еще раз!');
   })
   bot.on('callback_query', async msg => {
     const data = msg.data;
     const chatId = msg.message.chat.id;
-    if (data === '/again') {
+    const text = msg.text;
+    if (text === 'Да') {
       return starGame(chatId);
     }
     if (data === chats[chatId]) {
       return bot.sendMessage(chatId, `Поздравляю ты угадал, это цифра ${chats[chatId]}`, againOptions);
     }
     else {
-      return bot.sendMessage(chatId, `Ты не угадал, я загадал цифру ${chats[chatId]}`, againOptions);
+      return await bot.sendMessage(chatId, `Ты не угадал, я загадал цифру ${chats[chatId]}`),
+              await bot.sendMessage(chatId, `Сиграем еще раз?`, againOptions);
+              
     }
+    
   })
 }
 
